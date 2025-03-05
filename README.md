@@ -1,5 +1,4 @@
 # Agenda
-#### Video Demo:  <https://www.youtube.com/watch?v=Ytu5s19VUl4>
 #### Description:
 
 app.py:
