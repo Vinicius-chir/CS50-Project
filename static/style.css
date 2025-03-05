@@ -1,0 +1,221 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root
+{
+    --background-color: #dfdfdf;
+    --container-color: black;
+    --thead-color: #f4f4f4;
+    --icon-color: #666c75;
+    --center-color: black;
+}
+
+.darkmode
+{
+    --background-color: #0f0f0e;
+    --container-color: white;
+    --thead-color: #333231;
+    --icon-color: #cbcdd1;
+    --center-color: white;
+}
+
+#theme-switch
+{
+    background-color: var(--icon-color);
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 3px;
+    left: 130px;
+}
+
+#theme-switch i
+{
+    fill: var(--icon-color:);
+}
+#theme-switch i:last-child
+{
+    display:none;
+}
+.darkmode #theme-switch i:first-child
+{
+    display:none;
+}
+.darkmode #theme-switch i:last-child
+{
+    display:block;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ocupa pelo menos a altura da tela */
+}
+
+/* Estilo do Header */
+.header {
+    display: flex; /* Usa flexbox */
+    justify-content: space-between; /* Espaço entre o título e os botões */
+    align-items: center; /* Alinha verticalmente */
+    padding: 15px 30px; /* Espaçamento interno */
+    background-color: #185a8c;
+    color: #fff;
+    height: 60px; /* Altura fixa para evitar desalinhamento */
+}
+
+ /* Estilo do conteúdo principal */
+ .main
+ {
+    flex: 1; /* Faz o conteúdo crescer para ocupar o espaço restante */
+    padding: 20px;
+  }
+
+.footer {
+    background-color: #185a8c;
+    color: #fff;
+    padding: 15px 30px;
+    text-align: center
+  }
+
+  .footer p {
+    margin: 0;
+    font-size: 0.9em;
+  }
+
+.logo
+{
+    display: flex; /* Usa flexbox para alinhar os itens */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 10px; /* Adiciona um espaço entre o texto e o ícone */
+}
+.logo i
+{
+    font-size: 1.5rem;
+}
+
+/* Estilo do Logo */
+.logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.logo h3 {
+    font-size: 6px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Estilo dos Botões */
+.nav {
+    display: flex; /* Flexbox para os botões */
+    align-items: center; /* Garante alinhamento vertical */
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+.btn {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.center
+{
+
+    display: flex; /* Usa Flexbox para centralização */
+    flex-direction: column; /* Mantém os elementos empilhados */
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    height: 50vh; /* Altura do contêiner igual à altura da janela */
+    padding: 40px; /* Aumenta o preenchimento interno */
+    color: var(--center-color);
+}
+
+.center2
+{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagecenter
+{
+    align-items: center;
+    max-width: 50%;
+    max-height: 50%;
+    display: block;
+    margin: auto;
+}
+
+
+.nav-buttons {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os botões */
+    margin-right: auto; /* Empurra os botões para a esquerda, após o logo */
+}
+
+.table-container {
+    overflow-x: auto;
+    margin: 20px;
+    color: var(--container-color);
+}
+
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.task-table th, .task-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.task-table th {
+    background-color: var(--thead-color);
+}
+
+.delete-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.approve-button {
+    background-color: #14d90d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #cc0000;
+}
+
+.approve-button:hover {
+    background-color: #0d8f09;
+}

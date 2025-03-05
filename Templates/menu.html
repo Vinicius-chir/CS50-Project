@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <title>{% block title %} Agenda {% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type =text/javascript src=static/darkmode.js defer></script>
+        <script type =text/javascript src=static/dateformatted.js defer></script>
+         <!-- http://getbootstrap.com/docs/5.3/ -->
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+         <link rel="stylesheet" href="/static/style.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+    <body class="d-flex flex-column min-vh-100">
+        <header class="header">
+            <div class="logo" >
+                <h1>Agenda</h1>
+                <button id = "theme-switch">
+                <i class="fa-solid fa-moon"></i>
+                <i class="fa-sharp fa-solid fa-sun" style="color: #ffffff;"></i>
+                </button>
+            </div>
+            {% if session["user_id"] %}
+            <nav id= "nav-buttons">
+                <a href="/" class="btn">Tasks</a>
+                <a href="/add" class="btn">Add task</a>
+                <a href="/history" class="btn">History</a>
+            </nav>
+                <a href="/logout" class="btn">Logout</a>
+            {% else %}
+            <nav class="nav">
+                <a href="/register" class="btn">Register</a>
+                <a href="/login" class="btn">Login</a>
+            </nav>
+            {% endif %}
+        </header>
+
+        <main class="flex-grow-1">
+            {% block content %}
+            <div class="table-container">
+                <table class="task-table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Deadline (yyyy/mm/dd)</th>
+                            <th>Created in (yyyy/mm/dd)</th>
+                            <th>Delete/Approve</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for task in tasks %}
+                        <tr>
+                            <td>{{ task.TITLE }}</td>
+                            <td>{{ task.DESCRIPTION }}</td>
+                            <td>{{ task.DEADLINE }}</td>
+                            <td>{{ task.CREATED }}</td>
+                            <form action="/" method="post" class="delete-form">
+                                <td>
+                                    <input type="hidden" name="task_id" value="{{ task.task_id }}">
+                                    <button type="submit" name="delete" class="delete-button">X</button>
+                                    <button type="submit" name="approve" class="approve-button">&#10004</button>
+                                </td>
+                                </form>
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endblock %}
+            </table>
+        </main>
+
+        <footer class="footer mt-auto">
+            <div class="footer-content">
+              <p>Created by: <strong>Vinicius Chirnev</strong> in 02/12/2025 </p>
+              <p>Telefone: 55 (11)12345-6789</a> | Email: Realisticemail@email.com</p>
+            </div>
+          </footer>
+    </body>
+</html>
+

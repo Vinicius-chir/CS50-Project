@@ -1,0 +1,34 @@
+{% extends "menu.html" %}
+{% block title %}History{% endblock %}
+{%block content%}
+<div class="table-container">
+    <table class="task-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Original deadline (yyyy/mm/dd)</th>
+                <th>Finished in (yyyy/mm/dd)</th>
+                <th>Delete history</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.TITLE }}</td>
+                <td>{{ task.DESCRIPTION }}</td>
+                <td>{{ task.DEADLINE }}</td>
+                <td>{{ task.FINISHED }}</td>
+                <form action="/history" method="post" class="delete-form">
+                    <td>
+                        <input type="hidden" name="history" value="{{ task.history_id }}">
+                        <button type="submit" name="deletehistory" class="delete-button">X</button>
+                    </td>
+                    </form>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock%}

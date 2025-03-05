@@ -1,0 +1,22 @@
+{% extends "menu.html" %}
+{% block title %}Add task{% endblock %}
+{%block content%}
+<div class="center">
+    <h1>Add task</h1>
+        <form action="/add" method="post">
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="title" placeholder="Title" type="text">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" name="description" placeholder="Description" type="text">
+            </div>
+            <div class="mb-3">
+                <h3>Deadline</h3>
+                <input class="form-control mx-auto w-auto" name="deadline" placeholder="date" type="date">
+            </div>
+            <div class="center2">
+            <button class="btn btn-primary center2" id="addsubmit" type="submit">Submit</button>
+            </div>
+        </form>
+</div>
+{% endblock%}
